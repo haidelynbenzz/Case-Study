@@ -1,0 +1,100 @@
+.App {
+  	box-sizing: border-box;
+  	font-family: 'Source Sans Pro', sans-serif;
+	background-color: #c0c0c0;
+}
+
+/*HEADER*/
+.App-header {
+	position: absolute;
+	width: 100%;
+	z-index: 3;
+	height: 44px;
+	background-color: #fff;
+    background-color: #2d3d51;
+    box-sizing: border-box;
+}
+.logo1{
+	height: 44px;
+    padding: 80px 75px 0px;
+    font-weight: 700;
+    color: white;
+}
+
+.img{
+	height: 44px;
+	margin-left: -190px;
+    font-weight: 700;
+	color: white;
+}
+.profile{
+	height: 44px;
+	float: right;
+    font-weight: 700;
+	margin-right: 20px;
+	border-radius: 50px;
+}
+p{
+	color: white;
+	float: right;
+	margin-right: 20px;
+}
+.logo{
+	margin-left: 60px;
+}
+.App-header .logo {
+	float: left;
+}
+.App-header .logo {
+	height: 44px;
+	z-index: 1;
+	padding: 13px;
+	font-weight: 700;
+	color: #233245;
+}
+.logo span {
+	margin-left: 5px;
+	text-transform: uppercase;
+	color: white;
+}
+
+/*BODY*/
+body {
+	margin: 0;
+	padding: 0;
+}
+.side-nav {
+	position: absolute;
+    width: 20%;
+    height: 100%;
+	background-color: #35475e;
+	z-index: 1;
+}
+.side-nav ul {
+	margin: 0;
+	padding: 0;
+}
+.side-nav ul li {
+	padding: 16px 16px;
+	border-bottom: 1px solid #3c506a;
+	position: relative;
+
+}
+.side-nav ul li {
+	min-width: 20px;
+	text-align: center;
+	list-style: none;
+}
+.side-nav ul li span{
+	color: white;
+	text-decoration: none;
+}
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #35475e;
+    text-align: center;
+}
+
