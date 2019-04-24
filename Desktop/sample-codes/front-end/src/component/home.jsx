@@ -12,11 +12,6 @@ class Home extends Component{
     <div>
 
     <body>
-        <div className="main-content">
-			<div className="title">
-				NEW FEATURES
-			</div>
-        </div>
         <div className="container">
         <img src={gallery} className="gallery"/>
         <div className="desc">Add Description <br/>ksjdhfskjdhflkdsfhaksj<br/>hskjdfsadasdfsadfd</div>

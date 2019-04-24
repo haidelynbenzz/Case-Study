@@ -4,78 +4,103 @@ import axios from 'axios';
 
 class Create extends Component{
 
-    
+    constructor(){
+        super();
 
-//'http://localhost:8080/restsample01/rest/AddFoodItem')
+        this.state = {
+            FoodItems: [],
+            foodName: {
+                foodItemName: '',
+                unitPrice: '',
+                inStock: ''
+            }
+        };
 
-   
-render(){
-   
-    return(
+    }
+
+    componentDidMount(){
+        axios.get('http://localhost:8080/restsample01/rest/AddFoodItem')
+        .then(res => {
+            const FoodItems = res.data;
+            this.setState({ FoodItems });
+        })
+    }
+    handleChange = e => {
+        this.setState({
+            foodName: e.target.value
+        });
+    }
+    handleSubmit = e => {
+        e.preventDefault();
         
-        <body>
+        const foodName = {
+            foodName: this.state.foodItemName,
+            foodName: this.state.unitPrice,
+            foodName: this.state.inStock
+        }
+
+        axios.post('http://localhost:8080/restsample01/rest/AddFoodItem', { foodName })
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
+
+    }
+    
+        
+render(){
+            
+
+    return(
+
+    <div>
         <div className="main-content">
 			<div className="title">
 				DASHBOARD
 			</div>
 			<div className="main">
 				<div className="widget">
-					<div className="title">Create Order</div>
-                   
-                   <input placeholder="Customer Name" />
-                   <input placeholder="Address" />
-                   <input placeholder="Contact Number" />
-                        <table className="createOrder">
-                            <tbody>
-                                <tr>Order Items</tr>
-                            </tbody>
-                        </table>
-                    <input placeholder="Status" />
-                    <label>Total: </label>
-				</div>
-                
-                {/* <table className="addFoodItem">
-                <tbody>
-                    <tr className="add-table-row">
-                        <th>Food ID</th>
-                        <th>Food Item Name</th>
-                        <th>Unit Price</th>
-                        <th>InStock</th>
-                    </tr>
-                    <tr>
-                        <th>{items.map(item =>(
-                        <li key={item.id}>
-                            Id : {item.id}
-                        </li>))}
-                        </th>
-                        <th>{items.map(item =>(
-                        <li key={item.id}>
-                            Name: {item.foodItemName}
-                        </li>))}
-                        </th>
-                        <th>{items.map(item =>(
-                        <li key={item.id}>
-                            UnitPrice: {item.unitPrice}
-                        </li>))}
-                        </th>
-                        <th>{items.map(item =>(
-                        <li key={item.id}>
-                            InStock: {item.inStock}
-                        </li>))}
-                        </th>
-                    </tr>
-                </tbody>
-                
-                </table> */}
+					<div className="title">Add Food Item</div>
+                    <form onSubmit={this.handleSubmit}>
+                        <input name="foodItemName" placeholder="Food Name" onChange={this.handleChange}/>
+                        <input name="unitPrice" placeholder="Unit Price" onChange={this.handleChange}/>
+                        {/* <input name="inStock" value={inStock} placeholder="Stock" onChange={this.onChange} /> */}
+                        
+                        <select name="inStock" id="inStock" onChange={this.handleChange}>
+                        <option disabled selected>Choose</option>
+                        <option>Full Inventory</option>
+                        <option>Limited Stock</option>
+                        <option>Out of Stock</option>
+                    </select>
+                    <br/>
+                    <button type="submit" className="submit" onSubmit={this.onSubmit}>ADD</button>
+                    <table>
+                        <tbody>
+                            <tr className="add-food-row">
+                                <th className="add-table-cell">ID</th>
+                                <th className="add-table-cell">FOOD ITEM NAME</th>
+                                <th className="add-table-cell">UNIT PRICE</th>
+                                <th className="add-table-cell">STOCK STATUS</th>
 
-			</div>
+                            </tr>
+                            <tr className="add-food-row">
+                                <th className='add-food-cell'>{ this.state.FoodItems.map(FoodItem => <li>{FoodItem.id}</li>)}</th>
+                            
+                                <th className='add-food-cell'>{ this.state.FoodItems.map(FoodItem => <li>{FoodItem.foodItemName}</li>)}</th>
+                                <th className='add-food-cell'>{ this.state.FoodItems.map(FoodItem => <li>{FoodItem.unitPrice}</li>)}</th>
+                                <th className='add-food-cell'>{ this.state.FoodItems.map(FoodItem => <li>{FoodItem.inStock}</li>)}</th>
+                            </tr>
+     
+                        </tbody>
+                    </table>
+                    </form>
+				    </div>
+			    </div>
+            </div>
+        </div>
+        );
+    }
+}
 
-           
-            <button className="list">List Food Items</button>
-            <button className="cancel" type="clear">Cancel</button>
-		</div>
-        </body>
-    );
-}
-}
+
 export default Create;

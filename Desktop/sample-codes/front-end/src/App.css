@@ -14,12 +14,6 @@
     background-color: #2d3d51;
     box-sizing: border-box;
 }
-.logo1{
-	height: 44px;
-    padding: 80px 75px 0px;
-    font-weight: 700;
-    color: white;
-}
 
 .img{
 	height: 44px;
@@ -64,7 +58,7 @@ body {
 	padding: 0;
 }
 .side-nav {
-	position: absolute;
+	position: fixed;
     width: 20%;
     height: 100%;
 	background-color: #35475e;
@@ -73,10 +67,11 @@ body {
 .side-nav ul {
 	margin: 0;
 	padding: 0;
+	margin-top: 90px;
 }
 .side-nav ul li {
-	padding: 16px 16px;
-	border-bottom: 1px solid #3c506a;
+	padding: 20px 16px;
+	border-bottom: 2px solid #3c506a;
 	position: relative;
 
 }
@@ -84,10 +79,12 @@ body {
 	min-width: 20px;
 	text-align: center;
 	list-style: none;
+	
 }
 .side-nav ul li span{
 	color: white;
 	text-decoration: none;
+
 }
 footer{
     position: fixed;
