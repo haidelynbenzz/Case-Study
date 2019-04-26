@@ -21,6 +21,7 @@ class Body extends Component {
             [e.target.name]: e.target.value
         });
     }
+
     handleSubmit = e => {
         e.preventDefault();
 
@@ -40,6 +41,7 @@ class Body extends Component {
             })
 
     }
+    
 
 
     render() {
@@ -47,7 +49,6 @@ class Body extends Component {
 
         return (
 
-            <div>
                 <div className="main-content">
                     <div className="title">
                         DASHBOARD
@@ -67,13 +68,12 @@ class Body extends Component {
                                     <option>Out of Stock</option>
                                 </select>
                                 <br />
-                                <button onClick={() => { alert('Item Added! <br/> Thank You!'); }} type="submit" className="submit" onSubmit={this.onSubmit}>ADD</button>
+                                <button onClick={() => { alert('Item Added! Thank You!'); }} type="submit" className="submit" onSubmit={this.handleSubmit}>ADD</button>
 
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
         );
     }
 }

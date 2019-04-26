@@ -18,13 +18,7 @@ class Create extends Component{
 
     }
 
-    componentDidMount(){
-        axios.get('http://localhost:8080/restsample01/rest/AddFoodItem')
-        .then(res => {
-            const FoodItems = res.data;
-            this.setState({ FoodItems });
-        })
-    }
+
     handleChange = e => {
         this.setState({
             foodName: e.target.value
@@ -60,39 +54,23 @@ render(){
 			</div>
 			<div className="main">
 				<div className="widget">
-					<div className="title">Add Food Item</div>
+					<div className="title">Create Order</div>
                     <form onSubmit={this.handleSubmit}>
-                        <input name="foodItemName" placeholder="Food Name" onChange={this.handleChange}/>
-                        <input name="unitPrice" placeholder="Unit Price" onChange={this.handleChange}/>
-                        {/* <input name="inStock" value={inStock} placeholder="Stock" onChange={this.onChange} /> */}
-                        
-                        <select name="inStock" id="inStock" onChange={this.handleChange}>
+                        <input name="customerName" placeholder="Customer Name" />
+                        <input name="address" placeholder="Address" />
+                        <input name="contactNumber" placeholder="Contact Number" />
+                        <input name="order" placeholder="Ordered Items" />
+                        <input name="Total" placeholder="Total" />
+                        <select name="status" id="status">
                         <option disabled selected>Choose</option>
-                        <option>Full Inventory</option>
-                        <option>Limited Stock</option>
-                        <option>Out of Stock</option>
+                        <option>Recieved</option>
+                        <option>Kitchen</option>
+                        <option>In Transit</option>
+                        <option>Delivered</option>
+                        <option>Cancelled</option>
                     </select>
                     <br/>
                     <button type="submit" className="submit" onSubmit={this.onSubmit}>ADD</button>
-                    <table>
-                        <tbody>
-                            <tr className="add-food-row">
-                                <th className="add-table-cell">ID</th>
-                                <th className="add-table-cell">FOOD ITEM NAME</th>
-                                <th className="add-table-cell">UNIT PRICE</th>
-                                <th className="add-table-cell">STOCK STATUS</th>
-
-                            </tr>
-                            <tr className="add-food-row">
-                                <th className='add-food-cell'>{ this.state.FoodItems.map(FoodItem => <li>{FoodItem.id}</li>)}</th>
-                            
-                                <th className='add-food-cell'>{ this.state.FoodItems.map(FoodItem => <li>{FoodItem.foodItemName}</li>)}</th>
-                                <th className='add-food-cell'>{ this.state.FoodItems.map(FoodItem => <li>{FoodItem.unitPrice}</li>)}</th>
-                                <th className='add-food-cell'>{ this.state.FoodItems.map(FoodItem => <li>{FoodItem.inStock}</li>)}</th>
-                            </tr>
-     
-                        </tbody>
-                    </table>
                     </form>
 				    </div>
 			    </div>
