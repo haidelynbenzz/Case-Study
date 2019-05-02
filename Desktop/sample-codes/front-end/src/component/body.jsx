@@ -22,6 +22,7 @@ class Body extends Component {
         });
     }
 
+    //SUBMIT FUNCTION
     handleSubmit = e => {
         e.preventDefault();
 
@@ -68,7 +69,7 @@ class Body extends Component {
                                     <option>Out of Stock</option>
                                 </select>
                                 <br />
-                                <button onClick={() => { alert('Item Added! Thank You!'); }} type="submit" className="submit" onSubmit={this.handleSubmit}>ADD</button>
+                                <button onClick={() => { alert('Food Item Added! Thank You!'); }} type="submit" className="submit" onSubmit={this.handleSubmit}>ADD</button>
 
                             </form>
                         </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, NavLink, HashRouter } from 'react-router-dom';
-
+import Home from './component/home.jsx';
 import Body from './component/body.jsx';
 import ListItems from './component/list-items.jsx';
 import UpdateItems from './component/updateItems.jsx';
@@ -11,7 +11,6 @@ import './App.css';
 
 import image from '../src/img/catering.png';
 import image2 from '../src/img/images.png';
-import gallery from '../src/img/header.png';
 
 class App extends Component {
   render() {
@@ -29,18 +28,15 @@ class App extends Component {
           </header>
 
           <body>
-          <div className="main-content">
-                    <div className="title">
-                        Welcome Admin!!! 
-			        </div>
-                    <div className="container">
-                                <img src={gallery} className="gallery" />
-                    </div>
-                </div>
             <div className="side-nav">
 
               <nav>
                 <ul>
+                <li>
+                    <NavLink to='/Home'>
+                      <span>Home</span>
+                    </NavLink>
+                  </li>
                   <li>
                     <NavLink to='/Body'>
                       <span>Add Food Item</span>
@@ -73,6 +69,7 @@ class App extends Component {
                   </li>
                 </ul>
                 <div className='content'>
+                  <Route exact path="/Home" component={Home} />
                   <Route path="/Body" component={Body} />
                   <Route path="/ListItems" component={ListItems} />
                   <Route path="/UpdateItems" component={UpdateItems} />
